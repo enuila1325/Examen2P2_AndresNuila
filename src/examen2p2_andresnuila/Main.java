@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -88,6 +89,16 @@ public class Main extends javax.swing.JFrame {
         tf_instalacionPantalla = new javax.swing.JTextField();
         tf_instalacionProcesador = new javax.swing.JTextField();
         tactiloNo = new javax.swing.ButtonGroup();
+        CrearTecnico = new javax.swing.JDialog();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        tf_nombreTecnico = new javax.swing.JTextField();
+        rb_M = new javax.swing.JRadioButton();
+        rb_F = new javax.swing.JRadioButton();
+        sp_Edad = new javax.swing.JSpinner();
+        jb_AgregarTecnico = new javax.swing.JButton();
+        MoF3 = new javax.swing.ButtonGroup();
         jMenuBar1 = new javax.swing.JMenuBar();
         Tecnico = new javax.swing.JMenu();
         Computadora = new javax.swing.JMenu();
@@ -449,6 +460,72 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel29.setText("Nombre");
+
+        jLabel30.setText("Genero");
+
+        jLabel31.setText("Edad");
+
+        MoF3.add(rb_M);
+        rb_M.setText("M");
+
+        MoF3.add(rb_F);
+        rb_F.setText("F");
+
+        jb_AgregarTecnico.setText("Agregar");
+        jb_AgregarTecnico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_AgregarTecnicoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout CrearTecnicoLayout = new javax.swing.GroupLayout(CrearTecnico.getContentPane());
+        CrearTecnico.getContentPane().setLayout(CrearTecnicoLayout);
+        CrearTecnicoLayout.setHorizontalGroup(
+            CrearTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CrearTecnicoLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(CrearTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(CrearTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CrearTecnicoLayout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addGroup(CrearTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(sp_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(CrearTecnicoLayout.createSequentialGroup()
+                                .addComponent(rb_M)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rb_F))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CrearTecnicoLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(CrearTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jb_AgregarTecnico)
+                            .addComponent(tf_nombreTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        CrearTecnicoLayout.setVerticalGroup(
+            CrearTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CrearTecnicoLayout.createSequentialGroup()
+                .addGap(98, 98, 98)
+                .addGroup(CrearTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(tf_nombreTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(CrearTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(rb_M)
+                    .addComponent(rb_F))
+                .addGap(32, 32, 32)
+                .addGroup(CrearTecnicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(sp_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addComponent(jb_AgregarTecnico)
+                .addGap(46, 46, 46))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Tecnico.setText("Tecnicos");
@@ -532,10 +609,47 @@ public class Main extends javax.swing.JFrame {
             adminCompus ac = new adminCompus("./Computadoras.dna");
             ac.getComputadoras().add(c);
             ac.escribirArchivo();
+            JOptionPane.showMessageDialog(null, "SE HA CREADO EXITOSAMENTE");
+            tf_nSerie.setText("");
+            tf_tamRAM.setText("");
+            tf_marcaRAM.setText("");
+            tf_instalacionRAM.setText("");
+            tf_tamaDD.setText("");
+            tf_marcaDD.setText("");
+            tf_instalacionDD.setText("");
+            tf_materialBateria.setText("");
+            tf_instalacionBateria.setText("");
+            tf_materialTeclado.setText("");
+            tf_instalacionTeclado.setText("");
+            tf_tipoPantalla.setText("");
+            tf_instalacionPantalla.setText("");
+            tf_VeloProcesador.setText("");
+            tf_instalacionProcesador.setText("");
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jb_AgregarTecnicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_AgregarTecnicoMouseClicked
+        try {
+            String nombre = tf_nombreTecnico.getText();
+            String genero = "";
+            if (rb_M.isSelected()) {
+                genero = "M";
+            } else if (rb_F.isSelected()) {
+                genero = "F";
+            }
+            int edad = Integer.parseInt(sp_Edad.getValue().toString());
+            Tecnico t = new Tecnico(nombre, genero, edad);
+            adminTecnicos at = new adminTecnicos("./Tecnicos.txt");
+            at.getTecnicos().add(t);
+            at.escribirArchivo();
+            tf_nombreTecnico.setText("");
+            JOptionPane.showMessageDialog(null, "SE HA AGREGADO EXITOSAMENTE");
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_AgregarTecnicoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -575,6 +689,8 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Computadora;
     private javax.swing.JDialog CrearPC;
+    private javax.swing.JDialog CrearTecnico;
+    private javax.swing.ButtonGroup MoF3;
     private javax.swing.JMenu Tecnico;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -598,7 +714,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -608,11 +727,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JButton jb_AgregarTecnico;
     private javax.swing.JButton jb_color;
     private javax.swing.JButton jb_colorTeclado;
     private com.toedter.calendar.JYearChooser jy_año;
+    private javax.swing.JRadioButton rb_F;
+    private javax.swing.JRadioButton rb_M;
     private javax.swing.JRadioButton rb_Tactil;
     private javax.swing.JRadioButton rb_noTactil;
+    private javax.swing.JSpinner sp_Edad;
     private javax.swing.JSpinner sp_horasBateria;
     private javax.swing.JSpinner sp_nucleosProcesador;
     private javax.swing.ButtonGroup tactiloNo;
@@ -629,6 +752,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField tf_materialPC;
     private javax.swing.JTextField tf_materialTeclado;
     private javax.swing.JFormattedTextField tf_nSerie;
+    private javax.swing.JTextField tf_nombreTecnico;
     private javax.swing.JTextField tf_tamRAM;
     private javax.swing.JTextField tf_tamaDD;
     private javax.swing.JTextField tf_tipoPantalla;
