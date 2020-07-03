@@ -1,9 +1,11 @@
 package examen2p2_andresnuila;
 
 import java.awt.Color;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
-public class Computadora {
+public class Computadora implements Serializable {
 
     private String nSerie, material;
     private Color color;
@@ -14,6 +16,8 @@ public class Computadora {
     private Teclado t;
     private Pantalla p;
     private Procesador pr;
+    private ArrayList<Parte> partes = new ArrayList();
+    private static final long SerialVersionUID = 777L;
 
     public Computadora() {
     }
@@ -109,6 +113,14 @@ public class Computadora {
 
     public void setPr(Procesador pr) {
         this.pr = pr;
+    }
+
+    public ArrayList<Parte> getPartes() {
+        return partes;
+    }
+
+    public void setPartes(ArrayList<Parte> partes) {
+        this.partes = partes;
     }
 
     @Override

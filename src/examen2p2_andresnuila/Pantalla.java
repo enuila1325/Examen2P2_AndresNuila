@@ -1,6 +1,7 @@
 package examen2p2_andresnuila;
 
 public class Pantalla extends Parte {
+
     private String tactil, tipo;
 
     public Pantalla() {
@@ -11,8 +12,6 @@ public class Pantalla extends Parte {
         this.tactil = tactil;
         this.tipo = tipo;
     }
-
-    
 
     public String getTactil() {
         return tactil;
@@ -32,8 +31,7 @@ public class Pantalla extends Parte {
 
     @Override
     public String toString() {
-        return "Pantalla{" + "tactil=" + tactil + ", tipo=" + tipo + '}';
+        return "Pantalla tipo=" + tipo;
     }
-    
-    
+
 }

@@ -2,7 +2,7 @@ package examen2p2_andresnuila;
 
 import java.awt.Color;
 
-public class Teclado extends Parte{
+public class Teclado extends Parte {
 
     private String material;
     private Color color;
@@ -15,8 +15,6 @@ public class Teclado extends Parte{
         this.material = material;
         this.color = color;
     }
-
-    
 
     public String getMaterial() {
         return material;
@@ -36,7 +34,7 @@ public class Teclado extends Parte{
 
     @Override
     public String toString() {
-        return "Teclado{" + "material=" + material + ", color=" + color + '}';
+        return "Teclado{" + "material=" + material;
     }
 
 }

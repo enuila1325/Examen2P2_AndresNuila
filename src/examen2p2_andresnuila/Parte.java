@@ -1,8 +1,8 @@
 package examen2p2_andresnuila;
 
-public class Parte {
+public abstract class Parte {
 
-    private int tiempo;
+    protected int tiempo;
 
     public Parte() {
     }
@@ -20,8 +20,6 @@ public class Parte {
     }
 
     @Override
-    public String toString() {
-        return "Parte{" + "tiempo=" + tiempo + '}';
-    }
+    public abstract String toString();
 
 }

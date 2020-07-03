@@ -1,6 +1,6 @@
 package examen2p2_andresnuila;
 
-public class Procesador extends Parte{
+public class Procesador extends Parte {
 
     private int nucleos;
     private double velocidad;
@@ -32,7 +32,7 @@ public class Procesador extends Parte{
 
     @Override
     public String toString() {
-        return "Procesador{" + "nucleos=" + nucleos + ", velocidad=" + velocidad + '}';
+        return "Procesadorn: nucleos=" + nucleos + ", velocidad=" + velocidad + '}';
     }
 
 }

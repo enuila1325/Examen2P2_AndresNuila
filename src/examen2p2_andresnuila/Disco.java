@@ -34,7 +34,7 @@ public class Disco extends Parte{
 
     @Override
     public String toString() {
-        return "Disco{" + "tama\u00f1o=" + tamaño + ", marca=" + marca + '}';
+        return "Disco de " + tamaño + ", marca=" + marca + '}';
     }
 
 }

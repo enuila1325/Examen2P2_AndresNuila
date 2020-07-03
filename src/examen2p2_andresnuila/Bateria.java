@@ -1,11 +1,11 @@
 package examen2p2_andresnuila;
 
-public class Bateria extends Parte{
+public class Bateria extends Parte {
 
     private int horas;
     private String material;
 
-    public Bateria(){
+    public Bateria() {
     }
 
     public Bateria(int horas, String material, int tiempo) {
@@ -13,8 +13,6 @@ public class Bateria extends Parte{
         this.horas = horas;
         this.material = material;
     }
-
-    
 
     public int getHoras() {
         return horas;
@@ -34,7 +32,7 @@ public class Bateria extends Parte{
 
     @Override
     public String toString() {
-        return "Bateria{" + "horas=" + horas + ", material=" + material + '}';
+        return "Bateria de " + material;
     }
 
 }
