@@ -8,7 +8,7 @@ public class Bateria extends Parte{
     public Bateria(){
     }
 
-    public Bateria(int horas, String material, String tiempo) {
+    public Bateria(int horas, String material, int tiempo) {
         super(tiempo);
         this.horas = horas;
         this.material = material;

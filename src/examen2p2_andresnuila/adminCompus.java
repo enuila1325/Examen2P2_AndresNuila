@@ -34,7 +34,7 @@ public class adminCompus {
         return computadoras;
     }
 
-    public void setListaPersonas(ArrayList<Computadora> computadoras) {
+    public void setComputadoras(ArrayList<Computadora> computadoras) {
         this.computadoras = computadoras;
     }
 
@@ -44,7 +44,7 @@ public class adminCompus {
     }
 
     //extra mutador
-    public void setPersona(Computadora u) {
+    public void setComputadora(Computadora u) {
         this.computadoras.add(u);
     }
 

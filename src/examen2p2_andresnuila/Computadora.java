@@ -7,7 +7,7 @@ public class Computadora {
 
     private String nSerie, material;
     private Color color;
-    private Date año;
+    private int año;
     private RAM r;
     private Disco d;
     private Bateria b;
@@ -18,7 +18,7 @@ public class Computadora {
     public Computadora() {
     }
 
-    public Computadora(String nSerie, String material, Color color, Date año, RAM r, Disco d, Bateria b, Teclado t, Pantalla p, Procesador pr) {
+    public Computadora(String nSerie, String material, Color color, int año, RAM r, Disco d, Bateria b, Teclado t, Pantalla p, Procesador pr) {
         this.nSerie = nSerie;
         this.material = material;
         this.color = color;
@@ -55,11 +55,11 @@ public class Computadora {
         this.color = color;
     }
 
-    public Date getAño() {
+    public int getAño() {
         return año;
     }
 
-    public void setAño(Date año) {
+    public void setAño(int año) {
         this.año = año;
     }
 

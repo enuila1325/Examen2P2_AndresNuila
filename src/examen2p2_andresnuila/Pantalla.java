@@ -6,7 +6,7 @@ public class Pantalla extends Parte {
     public Pantalla() {
     }
 
-    public Pantalla(String tactil, String tipo, String tiempo) {
+    public Pantalla(String tactil, String tipo, int tiempo) {
         super(tiempo);
         this.tactil = tactil;
         this.tipo = tipo;

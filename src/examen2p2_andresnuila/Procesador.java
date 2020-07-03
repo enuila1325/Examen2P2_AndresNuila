@@ -8,7 +8,7 @@ public class Procesador extends Parte{
     public Procesador() {
     }
 
-    public Procesador(int nucleos, double velocidad, String tiempo) {
+    public Procesador(int nucleos, double velocidad, int tiempo) {
         super(tiempo);
         this.nucleos = nucleos;
         this.velocidad = velocidad;

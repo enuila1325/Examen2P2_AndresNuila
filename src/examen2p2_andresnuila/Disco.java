@@ -8,7 +8,7 @@ public class Disco extends Parte{
     public Disco() {
     }
 
-    public Disco(int tamaño, String marca, String tiempo) {
+    public Disco(int tamaño, String marca, int tiempo) {
         super(tiempo);
         this.tamaño = tamaño;
         this.marca = marca;

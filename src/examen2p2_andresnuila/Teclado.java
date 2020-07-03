@@ -10,7 +10,7 @@ public class Teclado extends Parte{
     public Teclado() {
     }
 
-    public Teclado(String material, Color color, String tiempo) {
+    public Teclado(String material, Color color, int tiempo) {
         super(tiempo);
         this.material = material;
         this.color = color;
