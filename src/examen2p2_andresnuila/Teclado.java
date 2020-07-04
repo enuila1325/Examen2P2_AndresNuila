@@ -5,12 +5,12 @@ import java.awt.Color;
 public class Teclado extends Parte {
 
     private String material;
-    private Color color;
+    private String color;
 
     public Teclado() {
     }
 
-    public Teclado(String material, Color color, int tiempo) {
+    public Teclado(String material, String color, int tiempo) {
         super(tiempo);
         this.material = material;
         this.color = color;
@@ -24,11 +24,11 @@ public class Teclado extends Parte {
         this.material = material;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
 

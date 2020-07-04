@@ -8,8 +8,8 @@ import java.util.Date;
 public class Computadora implements Serializable {
 
     private String nSerie, material;
-    private Color color;
-    private int año;
+    private String color;
+    private int anio;
     private RAM r;
     private Disco d;
     private Bateria b;
@@ -22,11 +22,11 @@ public class Computadora implements Serializable {
     public Computadora() {
     }
 
-    public Computadora(String nSerie, String material, Color color, int año, RAM r, Disco d, Bateria b, Teclado t, Pantalla p, Procesador pr) {
+    public Computadora(String nSerie, String material, String color, int año, RAM r, Disco d, Bateria b, Teclado t, Pantalla p, Procesador pr) {
         this.nSerie = nSerie;
         this.material = material;
         this.color = color;
-        this.año = año;
+        this.anio = año;
         this.r = r;
         this.d = d;
         this.b = b;
@@ -51,20 +51,20 @@ public class Computadora implements Serializable {
         this.material = material;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
     public int getAño() {
-        return año;
+        return anio;
     }
 
     public void setAño(int año) {
-        this.año = año;
+        this.anio = año;
     }
 
     public RAM getR() {
@@ -125,7 +125,7 @@ public class Computadora implements Serializable {
 
     @Override
     public String toString() {
-        return "Computadora{" + "nSerie=" + nSerie + ", material=" + material + ", color=" + color + ", a\u00f1o=" + año + ", r=" + r + ", d=" + d + ", b=" + b + ", t=" + t + ", p=" + p + ", pr=" + pr + '}';
+        return "Computadora-->" + "nSerie=" + nSerie + " año: " + anio;
     }
 
 }

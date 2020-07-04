@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
+import java.util.Random;
 
 /**
  *
@@ -45,7 +46,6 @@ public class Main extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jb_colorTeclado = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -53,7 +53,6 @@ public class Main extends javax.swing.JFrame {
         tf_nSerie = new javax.swing.JFormattedTextField();
         rb_noTactil = new javax.swing.JRadioButton();
         jLabel20 = new javax.swing.JLabel();
-        jb_color = new javax.swing.JButton();
         tf_tipoPantalla = new javax.swing.JTextField();
         tf_materialPC = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -90,6 +89,8 @@ public class Main extends javax.swing.JFrame {
         tf_instalacionTeclado = new javax.swing.JTextField();
         tf_instalacionPantalla = new javax.swing.JTextField();
         tf_instalacionProcesador = new javax.swing.JTextField();
+        tf_colorTeclado = new javax.swing.JTextField();
+        tf_colorCompu = new javax.swing.JTextField();
         tactiloNo = new javax.swing.ButtonGroup();
         CrearTecnico = new javax.swing.JDialog();
         jLabel29 = new javax.swing.JLabel();
@@ -101,7 +102,7 @@ public class Main extends javax.swing.JFrame {
         sp_Edad = new javax.swing.JSpinner();
         jb_AgregarTecnico = new javax.swing.JButton();
         MoF3 = new javax.swing.ButtonGroup();
-        jDialog1 = new javax.swing.JDialog();
+        ensamblaje = new javax.swing.JDialog();
         cb_compus = new javax.swing.JComboBox<>();
         cb_tecnicos = new javax.swing.JComboBox<>();
         jLabel32 = new javax.swing.JLabel();
@@ -128,12 +129,6 @@ public class Main extends javax.swing.JFrame {
 
         jLabel8.setText("Teclado:");
 
-        jb_colorTeclado.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_colorTecladoMouseClicked(evt);
-            }
-        });
-
         jLabel9.setText("Pantalla:");
 
         jLabel19.setText("Tactil:");
@@ -149,12 +144,6 @@ public class Main extends javax.swing.JFrame {
         rb_noTactil.setText("No");
 
         jLabel20.setText("Tipo:");
-
-        jb_color.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_colorActionPerformed(evt);
-            }
-        });
 
         jLabel11.setText("Tamaño:");
 
@@ -218,9 +207,9 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(tf_materialTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
                         .addComponent(jLabel18)
-                        .addGap(5, 5, 5)
-                        .addComponent(jb_colorTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(98, 98, 98)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tf_colorTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
                         .addComponent(jLabel25)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(tf_instalacionTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -231,16 +220,6 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
                                 .addComponent(tf_nSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(CrearPCLayout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jy_año, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(CrearPCLayout.createSequentialGroup()
-                                .addGap(53, 53, 53)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jb_color, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(CrearPCLayout.createSequentialGroup()
                                 .addGap(37, 37, 37)
                                 .addComponent(jLabel4)
@@ -275,7 +254,18 @@ public class Main extends javax.swing.JFrame {
                                 .addGap(98, 98, 98)
                                 .addComponent(jLabel27)
                                 .addGap(36, 36, 36)
-                                .addComponent(tf_instalacionBateria, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tf_instalacionBateria, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(CrearPCLayout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addGroup(CrearPCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(CrearPCLayout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tf_colorCompu, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(CrearPCLayout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jy_año, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(CrearPCLayout.createSequentialGroup()
                         .addGap(17, 17, 17)
@@ -346,13 +336,11 @@ public class Main extends javax.swing.JFrame {
                         .addGap(1, 1, 1)
                         .addComponent(jLabel2))
                     .addComponent(jy_año, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(CrearPCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CrearPCLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel3))
-                    .addComponent(jb_color, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
+                .addGroup(CrearPCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(tf_colorCompu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
                 .addGroup(CrearPCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CrearPCLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
@@ -424,11 +412,10 @@ public class Main extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(tf_materialTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(CrearPCLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel18))
-                    .addGroup(CrearPCLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jb_colorTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(CrearPCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(tf_colorTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tf_instalacionTeclado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
@@ -575,40 +562,40 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+        javax.swing.GroupLayout ensamblajeLayout = new javax.swing.GroupLayout(ensamblaje.getContentPane());
+        ensamblaje.getContentPane().setLayout(ensamblajeLayout);
+        ensamblajeLayout.setHorizontalGroup(
+            ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ensamblajeLayout.createSequentialGroup()
+                .addGroup(ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ensamblajeLayout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addComponent(cb_compus, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(90, 90, 90)
                         .addComponent(cb_tecnicos, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+                    .addGroup(ensamblajeLayout.createSequentialGroup()
                         .addGap(287, 287, 287)
                         .addComponent(jb_Ensamblar))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+                    .addGroup(ensamblajeLayout.createSequentialGroup()
                         .addGap(102, 102, 102)
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
-                            .addGroup(jDialog1Layout.createSequentialGroup()
+                            .addGroup(ensamblajeLayout.createSequentialGroup()
                                 .addComponent(jLabel32)
                                 .addGap(155, 155, 155)
                                 .addComponent(jLabel33))
                             .addComponent(instalacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(82, Short.MAX_VALUE))
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        ensamblajeLayout.setVerticalGroup(
+            ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ensamblajeLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_compus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_tecnicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(ensamblajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
                     .addComponent(jLabel33))
                 .addGap(74, 74, 74)
@@ -679,19 +666,6 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jb_colorTecladoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_colorTecladoMouseClicked
-        JColorChooser jc = new JColorChooser();
-        Color color = jc.showDialog(null, "Ingrese el color", Color.yellow);
-        jb_colorTeclado.setBackground(color);
-    }//GEN-LAST:event_jb_colorTecladoMouseClicked
-
-    private void jb_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_colorActionPerformed
-        // TODO add your handling code here:
-        JColorChooser jc = new JColorChooser();
-        Color color = jc.showDialog(null, "Ingrese el color", Color.yellow);
-        jb_color.setBackground(color);
-    }//GEN-LAST:event_jb_colorActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         CrearPC.pack();
         CrearPC.setModal(true);
@@ -703,7 +677,7 @@ public class Main extends javax.swing.JFrame {
         try {
             String serie = tf_nSerie.getText();
             int año = jy_año.getYear();
-            Color color = jb_color.getBackground();
+            String color = tf_colorCompu.getText();
             String material = tf_materialPC.getText();
             RAM r = new RAM(Integer.parseInt(tf_tamRAM.getText()), tf_marcaRAM.getText(),
                     Integer.parseInt(tf_instalacionRAM.getText()));
@@ -711,7 +685,7 @@ public class Main extends javax.swing.JFrame {
                     Integer.parseInt(tf_instalacionDD.getText()));
             Bateria b = new Bateria(Integer.parseInt(sp_horasBateria.getValue().toString()),
                     tf_materialBateria.getText(), Integer.parseInt(tf_instalacionBateria.getText()));
-            Teclado t = new Teclado(tf_materialTeclado.getText(), jb_colorTeclado.getBackground(),
+            Teclado t = new Teclado(tf_materialTeclado.getText(), tf_colorTeclado.getText(),
                     Integer.parseInt(tf_instalacionTeclado.getText()));
             String tactil = "";
             if (rb_Tactil.isSelected()) {
@@ -804,10 +778,10 @@ public class Main extends javax.swing.JFrame {
                 modelo2.addElement(tecnicos.get(i));
             }
             cb_tecnicos.setModel(modelo2);
-            jDialog1.pack();
-            jDialog1.setModal(true);
-            jDialog1.setLocationRelativeTo(null);
-            jDialog1.setVisible(true);
+            ensamblaje.pack();
+            ensamblaje.setModal(true);
+            ensamblaje.setLocationRelativeTo(null);
+            ensamblaje.setVisible(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -864,10 +838,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem agregarTexc;
     private javax.swing.JComboBox<String> cb_compus;
     private javax.swing.JComboBox<String> cb_tecnicos;
+    private javax.swing.JDialog ensamblaje;
     private javax.swing.JMenuItem ensamble;
     private javax.swing.JProgressBar instalacion;
     private javax.swing.JButton jButton1;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -908,8 +882,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jb_AgregarTecnico;
     private javax.swing.JButton jb_Ensamblar;
-    private javax.swing.JButton jb_color;
-    private javax.swing.JButton jb_colorTeclado;
     private com.toedter.calendar.JYearChooser jy_año;
     private javax.swing.JRadioButton rb_F;
     private javax.swing.JRadioButton rb_M;
@@ -920,6 +892,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSpinner sp_nucleosProcesador;
     private javax.swing.ButtonGroup tactiloNo;
     private javax.swing.JFormattedTextField tf_VeloProcesador;
+    private javax.swing.JTextField tf_colorCompu;
+    private javax.swing.JTextField tf_colorTeclado;
     private javax.swing.JTextField tf_instalacionBateria;
     private javax.swing.JTextField tf_instalacionDD;
     private javax.swing.JTextField tf_instalacionPantalla;
@@ -939,4 +913,5 @@ public class Main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private ArrayList<Computadora> pcs = new ArrayList();
     private ArrayList<Tecnico> tecnicos = new ArrayList();
+    static Random r = new Random();
 }

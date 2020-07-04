@@ -49,7 +49,7 @@ public class Tecnico {
 
     @Override
     public String toString() {
-        return "nombre=" + nombre + ", genero=" + genero + ", edad=" + edad + ", cPcTeminadas=" + cPcTeminadas + '}';
+        return "Tecnico: " + nombre + ", PCs Terminadas=" + cPcTeminadas;
     }
 
 }
