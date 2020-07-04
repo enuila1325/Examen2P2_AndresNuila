@@ -99,8 +99,8 @@ public class Ensamblaje extends Thread {
                             adminTecnicos at = new adminTecnicos("./Tecnicos.txt");
                             at.cargarArchivo();
                             for (int j = 0; j < at.getTecnicos().size(); j++) {
-                                if (at.getTecnicos().get(i).getNombre().equals(o.getTecnico().getNombre())) {
-                                    at.getTecnicos().get(i).setcPcTeminadas(at.getTecnicos().get(i).getcPcTeminadas() + 1);
+                                if (at.getTecnicos().get(j).getNombre().equalsIgnoreCase(o.getTecnico().getNombre())) {
+                                    at.getTecnicos().get(j).setcPcTeminadas(at.getTecnicos().get(j).getcPcTeminadas() + 1);
                                 }
                             }
                             at.escribirArchivo();
