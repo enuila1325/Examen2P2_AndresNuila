@@ -836,17 +836,21 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        adminTecnicos at = new adminTecnicos("./Tecnicos.txt");
-        String aux = "";
-        at.cargarArchivo();
-        for (int i = 0; i < at.getTecnicos().size(); i++) {
-            aux += i + "->" + at.getTecnicos().toString() + "\n";
+        try {
+            adminTecnicos at = new adminTecnicos("./Tecnicos.txt");
+            String aux = "";
+            at.cargarArchivo();
+            for (int i = 0; i < at.getTecnicos().size(); i++) {
+                aux += i + "->" + at.getTecnicos().toString() + "\n";
+            }
+            JOptionPane.showMessageDialog(null, aux);
+            int eli = Integer.parseInt(JOptionPane.showInputDialog("ingrese el indice a eliminar"));
+            at.getTecnicos().remove(eli);
+            at.escribirArchivo();
+            JOptionPane.showMessageDialog(null, "eliminado exitosamente");
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JOptionPane.showMessageDialog(null, aux);
-        int eli = Integer.parseInt(JOptionPane.showInputDialog("ingrese el indice a eliminar"));
-        at.getTecnicos().remove(eli);
-        at.escribirArchivo();
-        JOptionPane.showMessageDialog(null, "eliminado exitosamente");
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
