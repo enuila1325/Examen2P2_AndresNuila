@@ -761,6 +761,7 @@ public class Main extends javax.swing.JFrame {
             c.getPartes().add(pr);
             pcs.add(c);
             adminCompus ac = new adminCompus("./Computadoras.dna");
+            ac.cargarArchivo();
             ac.getComputadoras().add(c);
             ac.escribirArchivo();
             JOptionPane.showMessageDialog(null, "SE HA CREADO EXITOSAMENTE");
@@ -816,7 +817,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_agregarTexcActionPerformed
 
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-        
+
 
     }//GEN-LAST:event_jMenu3ActionPerformed
 
@@ -831,7 +832,7 @@ public class Main extends javax.swing.JFrame {
                 modelo.addElement(ac.getComputadoras().get(i));
             }
             cb_compus.setModel(modelo);
-            
+
             DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_tecnicos.getModel();
             adminTecnicos at = new adminTecnicos("./Tecnicos.txt");
             at.cargarArchivo();
