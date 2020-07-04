@@ -1,5 +1,6 @@
 package examen2p2_andresnuila;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,12 +29,21 @@ public class Ensamblaje extends Thread {
         }
     }
 
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
+    }
+
     public void run() {
+
         while (flag) {
             int aux = 0;
+            int error = 0;
             DefaultTableModel modelo = (DefaultTableModel) this.instalacion.getModel();
             for (int i = 0; i < lista.size(); i++) {
-
                 progreso.setValue(0);
                 try {
                     Thread.sleep(1000);
@@ -52,37 +62,40 @@ public class Ensamblaje extends Thread {
                 modelo.addRow(row);
 
                 int canti = o.getTecnico().getcPcTeminadas();
-                int fallo;
+                int fallo = 1 + r.nextInt(100);
                 if (canti < 0 || canti >= 5) {
-                    fallo = 1 + r.nextInt(30);
-                    System.out.println(fallo);
                     if (fallo < 30) {
-                        flag = false;
-                        JOptionPane.showMessageDialog(null, "Ensamblaje fallido");
+                        error++;
                     }
-                } else if (canti < 6 || canti >= 15) {
-                    fallo = 1 + r.nextInt(22);
+                } else if (canti < 6 || canti >= 15) {;
                     if (fallo < 22) {
-                        flag = false;
-                        JOptionPane.showMessageDialog(null, "Ensamblaje fallido");
+                        error++;
                     }
                 } else if (canti < 16 || canti >= 30) {
-                    fallo = 1 + r.nextInt(13);
-                    if (fallo < 13) {
-                        flag = false;
-                        JOptionPane.showMessageDialog(null, "Ensamblaje fallido");
+                    if (fallo < 13) {;
+                        error++;
                     }
                 } else if (canti < 30) {
-                    fallo = 1 + r.nextInt(7);
                     if (fallo < 7) {
-                        flag = false;
-                        JOptionPane.showMessageDialog(null, "Ensamblaje fallido");
+                        error++;
                     }
                 }
+
+                System.out.println(fallo);
                 aux++;
                 if (aux == 6) {
                     flag = false;
                     JOptionPane.showMessageDialog(null, "Ensamblaje finalizado");
+                    if (error != 0) {
+                        JOptionPane.showMessageDialog(null, "Hubo un fallo en el ensamblaje");
+                        try {
+                            adminReporteFallos af = new adminReporteFallos("./Bitacora de fallos.txt");
+                            af.getEnsamblajesFallidos().add(o);
+                            af.escribirArchivo();
+                        } catch (IOException ex) {
+                            Logger.getLogger(Ensamblaje.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
                 }
                 this.instalacion.setModel(modelo);
             }

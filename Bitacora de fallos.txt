@@ -1,0 +1,3 @@
+SE REPORTO UN FALLO A LAS: Fri Jul 03 19:09:25 CST 2020
+bhbjgfallo en ensamblar.
+Computadora con numero de serie: 11515
