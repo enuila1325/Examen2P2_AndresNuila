@@ -95,6 +95,13 @@ public class Ensamblaje extends Thread {
                         }
                     } else {
                         o.getTecnico().setcPcTeminadas(o.getTecnico().getcPcTeminadas() + 1);
+                        adminTecnicos at = new adminTecnicos("./Tecnicos.txt");
+                        at.cargarArchivo();
+                        for (int j = 0; j < at.getTecnicos().size(); j++) {
+                            if (at.getTecnicos().get(i).getNombre().equals(o.getTecnico().getNombre())) {
+                                at.getTecnicos().get(i).setcPcTeminadas(at.getTecnicos().get(i).getcPcTeminadas() + 1);
+                            }
+                        }
                     }
                 }
                 this.instalacion.setModel(modelo);
