@@ -622,6 +622,11 @@ public class Main extends javax.swing.JFrame {
         Tecnico.add(agregarTexc);
 
         jMenuItem2.setText("Eliminar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         Tecnico.add(jMenuItem2);
 
         jMenuBar1.add(Tecnico);
@@ -813,16 +818,36 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_EnsamblarMouseClicked
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        adminCompus ac = new adminCompus("./Computadoras.dna");
+        try {
+            adminCompus ac = new adminCompus("./Computadoras.dna");
+            String aux = "";
+            ac.cargarArchivo();
+            for (int i = 0; i < ac.getComputadoras().size(); i++) {
+                aux += i + "->" + ac.getComputadoras().toString() + "\n";
+            }
+            JOptionPane.showMessageDialog(null, aux);
+            int eli = Integer.parseInt(JOptionPane.showInputDialog("ingrese el indice a eliminar"));
+            ac.getComputadoras().remove(eli);
+            ac.escribirArchivo();
+            JOptionPane.showMessageDialog(null, "eliminado exitosamente");
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        adminTecnicos at = new adminTecnicos("./Tecnicos.txt");
         String aux = "";
-        for (int i = 0; i < ac.getComputadoras().size(); i++) {
-            aux += i + "->" + ac.getComputadoras().toString() + "\n";
+        at.cargarArchivo();
+        for (int i = 0; i < at.getTecnicos().size(); i++) {
+            aux += i + "->" + at.getTecnicos().toString() + "\n";
         }
         JOptionPane.showMessageDialog(null, aux);
         int eli = Integer.parseInt(JOptionPane.showInputDialog("ingrese el indice a eliminar"));
-        ac.getComputadoras().remove(eli);
+        at.getTecnicos().remove(eli);
+        at.escribirArchivo();
         JOptionPane.showMessageDialog(null, "eliminado exitosamente");
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
