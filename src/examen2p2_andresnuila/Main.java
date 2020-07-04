@@ -6,6 +6,10 @@
 package examen2p2_andresnuila;
 
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,6 +31,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -111,6 +116,9 @@ public class Main extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         instalacion = new javax.swing.JProgressBar();
+        reporte = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ta_reporte = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         Tecnico = new javax.swing.JMenu();
         agregarTexc = new javax.swing.JMenuItem();
@@ -120,6 +128,7 @@ public class Main extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         ensamble = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         jLabel17.setText("Material:");
 
@@ -609,6 +618,27 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(93, Short.MAX_VALUE))
         );
 
+        ta_reporte.setColumns(20);
+        ta_reporte.setRows(5);
+        jScrollPane2.setViewportView(ta_reporte);
+
+        javax.swing.GroupLayout reporteLayout = new javax.swing.GroupLayout(reporte.getContentPane());
+        reporte.getContentPane().setLayout(reporteLayout);
+        reporteLayout.setHorizontalGroup(
+            reporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reporteLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+        reporteLayout.setVerticalGroup(
+            reporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reporteLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Tecnico.setText("Tecnicos");
@@ -665,6 +695,14 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jMenu3.add(ensamble);
+
+        jMenuItem4.setText("Mostrar Reporte de fallos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem4);
 
         jMenuBar1.add(jMenu3);
 
@@ -778,7 +816,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_agregarTexcActionPerformed
 
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-
+        
 
     }//GEN-LAST:event_jMenu3ActionPerformed
 
@@ -793,7 +831,7 @@ public class Main extends javax.swing.JFrame {
                 modelo.addElement(ac.getComputadoras().get(i));
             }
             cb_compus.setModel(modelo);
-
+            
             DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_tecnicos.getModel();
             adminTecnicos at = new adminTecnicos("./Tecnicos.txt");
             at.cargarArchivo();
@@ -852,6 +890,30 @@ public class Main extends javax.swing.JFrame {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        File fichero = new File("./Bitacora de fallos.txt");
+        FileReader fr = null;
+        if (fichero.isFile()) {
+            try {
+                fr = new FileReader(fichero);
+                BufferedReader br = new BufferedReader(fr);
+                String linea = "";
+                while ((linea = br.readLine()) != null) {
+                    ta_reporte.append(linea);
+                    ta_reporte.append("\n");
+                }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        reporte.pack();
+        reporte.setModal(true);
+        reporte.setLocationRelativeTo(null);
+        reporte.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -939,7 +1001,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jb_AgregarTecnico;
     private javax.swing.JButton jb_Ensamblar;
@@ -948,9 +1012,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb_M;
     private javax.swing.JRadioButton rb_Tactil;
     private javax.swing.JRadioButton rb_noTactil;
+    private javax.swing.JDialog reporte;
     private javax.swing.JSpinner sp_Edad;
     private javax.swing.JSpinner sp_horasBateria;
     private javax.swing.JSpinner sp_nucleosProcesador;
+    private javax.swing.JTextArea ta_reporte;
     private javax.swing.ButtonGroup tactiloNo;
     private javax.swing.JFormattedTextField tf_VeloProcesador;
     private javax.swing.JTextField tf_colorCompu;
