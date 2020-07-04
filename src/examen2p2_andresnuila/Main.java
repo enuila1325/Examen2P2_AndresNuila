@@ -114,8 +114,10 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         Tecnico = new javax.swing.JMenu();
         agregarTexc = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         Computadora = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         ensamble = new javax.swing.JMenuItem();
 
@@ -619,6 +621,9 @@ public class Main extends javax.swing.JFrame {
         });
         Tecnico.add(agregarTexc);
 
+        jMenuItem2.setText("Eliminar");
+        Tecnico.add(jMenuItem2);
+
         jMenuBar1.add(Tecnico);
 
         Computadora.setText("Computadoras");
@@ -630,6 +635,14 @@ public class Main extends javax.swing.JFrame {
             }
         });
         Computadora.add(jMenuItem1);
+
+        jMenuItem3.setText("Eliminar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        Computadora.add(jMenuItem3);
 
         jMenuBar1.add(Computadora);
 
@@ -799,6 +812,18 @@ public class Main extends javax.swing.JFrame {
         proceso.start();
     }//GEN-LAST:event_jb_EnsamblarMouseClicked
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        adminCompus ac = new adminCompus("./Computadoras.dna");
+        String aux = "";
+        for (int i = 0; i < ac.getComputadoras().size(); i++) {
+            aux += i + "->" + ac.getComputadoras().toString() + "\n";
+        }
+        JOptionPane.showMessageDialog(null, aux);
+        int eli = Integer.parseInt(JOptionPane.showInputDialog("ingrese el indice a eliminar"));
+        ac.getComputadoras().remove(eli);
+        JOptionPane.showMessageDialog(null, "eliminado exitosamente");
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -883,6 +908,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jb_AgregarTecnico;
