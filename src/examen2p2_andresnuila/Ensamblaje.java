@@ -80,8 +80,6 @@ public class Ensamblaje extends Thread {
                         error++;
                     }
                 }
-
-                System.out.println(fallo);
                 aux++;
                 if (aux == 6) {
                     flag = false;

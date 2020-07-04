@@ -774,12 +774,13 @@ public class Main extends javax.swing.JFrame {
             for (int i = 0; i < ac.getComputadoras().size(); i++) {
                 modelo.addElement(ac.getComputadoras().get(i));
             }
-            System.out.println(ac.getComputadoras());
             cb_compus.setModel(modelo);
 
             DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_tecnicos.getModel();
-            for (int i = 0; i < tecnicos.size(); i++) {
-                modelo2.addElement(tecnicos.get(i));
+            adminTecnicos at = new adminTecnicos("./Tecnicos.txt");
+            at.cargarArchivo();
+            for (int i = 0; i < at.getTecnicos().size(); i++) {
+                modelo2.addElement(at.getTecnicos().get(i));
             }
             cb_tecnicos.setModel(modelo2);
             ensamblaje.pack();
