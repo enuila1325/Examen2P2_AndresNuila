@@ -62,6 +62,7 @@ public class adminReporteFallos {
                 auxProyecto += "SE REPORTO UN FALLO A LAS: " + new Date() + "\n";
                 auxProyecto += lp.getTecnico().getNombre() + "fallo en ensamblar.\n";
                 auxProyecto += "Computadora con numero de serie: " + lp.getComputadora().getnSerie();
+                auxProyecto += "------------------------------------------------------------------------";
                 bw.write(auxProyecto);
                 bw.flush();
             } catch (Exception e) {

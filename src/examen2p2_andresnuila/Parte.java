@@ -1,8 +1,12 @@
 package examen2p2_andresnuila;
 
-public abstract class Parte {
+import java.io.Serializable;
+
+public abstract class Parte implements Serializable {
 
     protected int tiempo;
+
+    private static final long SerialVersionUID = 777L;
 
     public Parte() {
     }

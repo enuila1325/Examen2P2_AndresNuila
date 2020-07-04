@@ -12,33 +12,33 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class adminTecnicos {
-    
+
     private ArrayList<Tecnico> tecnicos = new ArrayList();
     private File archivo = null;
-    
+
     public adminTecnicos() {
     }
-    
+
     public adminTecnicos(String path) {
         archivo = new File(path);
     }
-    
+
     public File getArchivo() {
         return archivo;
     }
-    
+
     public void setArchivo(File archivo) {
         this.archivo = archivo;
     }
-    
+
     public ArrayList<Tecnico> getTecnicos() {
         return tecnicos;
     }
-    
+
     public void setTecnicos(ArrayList<Tecnico> tecnicos) {
         this.tecnicos = tecnicos;
     }
-    
+
     @Override
     public String toString() {
         return "tecnicos=" + tecnicos;
@@ -67,7 +67,7 @@ public class adminTecnicos {
         bw.close();
         fw.close();
     }
-    
+
     public void cargarArchivo() {
         try {
             FileReader fr = null;

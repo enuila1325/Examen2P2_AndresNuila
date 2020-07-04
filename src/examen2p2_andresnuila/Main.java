@@ -741,6 +741,7 @@ public class Main extends javax.swing.JFrame {
             int edad = Integer.parseInt(sp_Edad.getValue().toString());
             Tecnico t = new Tecnico(nombre, genero, edad);
             adminTecnicos at = new adminTecnicos("./Tecnicos.txt");
+            at.cargarArchivo();
             at.getTecnicos().add(t);
             at.escribirArchivo();
             tf_nombreTecnico.setText("");
@@ -768,9 +769,12 @@ public class Main extends javax.swing.JFrame {
             cb_compus.removeAllItems();
             cb_tecnicos.removeAllItems();
             DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_compus.getModel();
-            for (int i = 0; i < pcs.size(); i++) {
-                modelo.addElement(pcs.get(i));
+            adminCompus ac = new adminCompus("./Computadoras.dna");
+            ac.cargarArchivo();
+            for (int i = 0; i < ac.getComputadoras().size(); i++) {
+                modelo.addElement(ac.getComputadoras().get(i));
             }
+            System.out.println(ac.getComputadoras());
             cb_compus.setModel(modelo);
 
             DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_tecnicos.getModel();

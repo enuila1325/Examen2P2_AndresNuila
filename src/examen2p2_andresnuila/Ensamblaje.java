@@ -95,6 +95,8 @@ public class Ensamblaje extends Thread {
                         } catch (IOException ex) {
                             Logger.getLogger(Ensamblaje.class.getName()).log(Level.SEVERE, null, ex);
                         }
+                    } else {
+                        o.getTecnico().setcPcTeminadas(o.getTecnico().getcPcTeminadas() + 1);
                     }
                 }
                 this.instalacion.setModel(modelo);
