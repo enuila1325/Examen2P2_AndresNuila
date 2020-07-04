@@ -1,6 +1,6 @@
 package examen2p2_andresnuila;
 
-public class RAM extends Parte{
+public class RAM extends Parte {
 
     private int tam;
     private String marca;
@@ -13,8 +13,6 @@ public class RAM extends Parte{
         this.tam = tam;
         this.marca = marca;
     }
-
-    
 
     public int getTam() {
         return tam;
@@ -34,9 +32,7 @@ public class RAM extends Parte{
 
     @Override
     public String toString() {
-        return "RAM{" + "tam=" + tam + ", marca=" + marca + '}';
+        return "RAM de" + tam + "GB, marca=" + marca;
     }
-    
-    
 
 }

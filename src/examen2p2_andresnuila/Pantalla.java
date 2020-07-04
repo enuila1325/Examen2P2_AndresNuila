@@ -31,7 +31,7 @@ public class Pantalla extends Parte {
 
     @Override
     public String toString() {
-        return "Pantalla tipo=" + tipo;
+        return "Pantalla tipo: " + tipo;
     }
 
 }

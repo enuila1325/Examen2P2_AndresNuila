@@ -32,7 +32,7 @@ public class Procesador extends Parte {
 
     @Override
     public String toString() {
-        return "Procesadorn: nucleos=" + nucleos + ", velocidad=" + velocidad + '}';
+        return "Procesador: nucleos: " + nucleos + ", velocidad=" + velocidad + '}';
     }
 
 }

@@ -125,7 +125,7 @@ public class Computadora implements Serializable {
 
     @Override
     public String toString() {
-        return "Computadora-->" + "nSerie=" + nSerie + " año: " + anio;
+        return "Computadora--> " + "nSerie=" + nSerie + " año: " + anio;
     }
 
 }
